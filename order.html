@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Order JOHNLicious</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* BODY */
+
+body{
+font-family:'Poppins',sans-serif;
+margin:0;
+
+background:
+linear-gradient(rgba(0,0,0,0.85),rgba(0,0,0,0.9)),
+url("images/page.jpeg");
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+
+color:white;
+}
+
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 40px;
+background:black;
+border-bottom:2px solid #d4a017;
+}
+
+.logo-section{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo-img{
+width:50px;
+}
+
+header h1{
+color:#d4a017;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin:0 15px;
+font-weight:600;
+}
+
+nav a:hover{
+color:#ffd700;
+}
+
+
+/* ORDER BOX */
+
+.order-section{
+
+max-width:500px;
+margin:60px auto;
+padding:40px;
+
+background:rgba(0,0,0,0.75);
+
+border-radius:20px;
+
+box-shadow:
+0 0 20px rgba(212,160,23,0.5);
+
+animation:fadeIn 1s;
+}
+
+.title{
+text-align:center;
+color:#d4a017;
+}
+
+.order-section p{
+text-align:center;
+margin-bottom:25px;
+}
+
+
+/* FORM */
+
+label{
+display:block;
+margin-top:15px;
+font-weight:600;
+}
+
+input,select{
+
+width:100%;
+padding:12px;
+margin-top:5px;
+
+border:none;
+border-radius:10px;
+
+background:#1a1a1a;
+color:white;
+}
+
+input:focus,select:focus{
+outline:none;
+box-shadow:0 0 10px #d4a017;
+}
+
+
+/* PAYMENT */
+
+.payment-method{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:10px;
+}
+
+.payment-option{
+
+background:#1a1a1a;
+padding:12px;
+border-radius:10px;
+
+cursor:pointer;
+
+transition:0.3s;
+
+border:2px solid transparent;
+}
+
+.payment-option:hover{
+
+border:2px solid #d4a017;
+
+box-shadow:0 0 10px #d4a017;
+}
+
+
+/* TOTAL */
+
+.total-box{
+
+margin-top:20px;
+
+padding:15px;
+
+background:#111;
+
+border-radius:10px;
+
+text-align:center;
+
+font-size:18px;
+
+color:#ffd700;
+
+font-weight:bold;
+}
+
+
+/* BUTTON */
+
+.btn{
+
+margin-top:20px;
+
+width:100%;
+padding:15px;
+
+border:none;
+border-radius:50px;
+
+background:linear-gradient(45deg,#d4a017,#ffd700);
+
+color:black;
+
+font-weight:700;
+
+font-size:16px;
+
+cursor:pointer;
+
+transition:0.3s;
+}
+
+.btn:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 0 20px #ffd700;
+}
+
+
+/* SUCCESS */
+
+.success-box{
+
+margin-top:20px;
+
+background:#111;
+
+padding:20px;
+
+border-radius:10px;
+
+border-left:5px solid #d4a017;
+
+display:none;
+
+animation:fadeIn 0.5s;
+}
+
+
+/* ANIMATION */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+
+<header>
+
+<div class="logo-section">
+
+<img src="JOHNLICIOUSSS/LOGO.jpeg" class="logo-img">
+
+<h1>JOHNLicious</h1>
+
+</div>
+
+<nav>
+
+<a href="JOHNLICIOUSSS.html">Home</a>
+<a href="menu.html">Menu</a>
+<a href="order.html">Order</a>
+
+</nav>
+
+</header>
+
+
+<section class="order-section">
+
+<h2 class="title">🛒 Tempahan JOHNLicious</h2>
+
+<p>Sila isi maklumat tempahan</p>
+
+
+<form id="orderForm">
+
+
+<label>Nama Penuh</label>
+<input type="text" id="nama" required>
+
+
+<label>Nombor Telefon</label>
+<input type="text" id="phone" required>
+
+
+<label>Pilih Menu</label>
+
+<div class="menu-item">
+Roti John Ayam - RM5
+<input type="number" id="ayamQty" value="0" min="0" onchange="kiraTotal()">
+</div>
+
+<div class="menu-item">
+Roti John Daging - RM6
+<input type="number" id="dagingQty" value="0" min="0" onchange="kiraTotal()">
+</div>
+</select>
+
+<label>Kuantiti</label>
+<input type="number" id="kuantiti" value="1" min="1" onchange="kiraTotal()">
+
+<label>Kaedah Bayaran</label>
+
+<div class="payment-method">
+
+<label class="payment-option">
+<input type="radio" name="payment" value="Cash" required>
+💵 Cash
+</label>
+
+<label class="payment-option">
+<input type="radio" name="payment" value="QR">
+🏦 QR
+</label>
+</div>
+
+
+<div class="total-box">
+
+Jumlah: RM<span id="total">0</span>
+
+</div>
+
+
+<button type="submit" class="btn">
+Hantar Tempahan
+</button>
+
+
+</form>
+
+
+<div id="successBox" class="success-box"></div>
+
+
+</section>
+
+
+
+<script>
+
+function kiraTotal(){
+
+let ayam = parseInt(document.getElementById("ayamQty").value) || 0;
+let daging = parseInt(document.getElementById("dagingQty").value) || 0;
+
+let total = (ayam * 5) + (daging * 6);
+
+document.getElementById("total").innerText = total;
+
+}
+
+
+// SUBMIT FORM
+document.getElementById("orderForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let nama=document.getElementById("nama").value.trim();
+let phone=document.getElementById("phone").value.trim();
+
+let ayam = parseInt(document.getElementById("ayamQty").value) || 0;
+let daging = parseInt(document.getElementById("dagingQty").value) || 0;
+
+let total=document.getElementById("total").innerText;
+
+let payment=document.querySelector('input[name="payment"]:checked');
+
+
+// VALIDATION
+if(ayam === 0 && daging === 0){
+alert("Sila pilih sekurang-kurangnya satu menu!");
+return;
+}
+
+if(!payment){
+alert("Sila pilih kaedah bayaran!");
+return;
+}
+
+
+// MENU DETAILS
+let menuDetails = "";
+
+if(ayam > 0){
+menuDetails += `🍗 Roti John Ayam x ${ayam}\n`;
+}
+
+if(daging > 0){
+menuDetails += `🥩 Roti John Daging x ${daging}\n`;
+}
+
+
+// nombor WhatsApp BUSINESS
+let nomborWhatsApp="601117367680";
+
+
+
+// mesej tempahan
+let message =
+`🍔 *TEMPAHAN BARU JOHNLicious*
+
+👤 Nama: ${nama}
+📞 Telefon: ${phone}
+
+📋 Menu:
+${menuDetails}
+
+💳 Bayaran: ${payment.value}
+💰 Jumlah: RM${total}
+
+Terima kasih kerana order JOHNLicious! ❤️`;
+
+
+// LINK WHATSAPP BETUL
+let whatsappURL =
+`https://wa.me/${nomborWhatsApp}?text=${encodeURIComponent(message)}`;
+
+window.open(whatsappURL,"_blank");
+
+
+// SUCCESS BOX
+let box=document.getElementById("successBox");
+
+box.style.display="block";
+
+box.innerHTML=
+`
+<h3>✅ Tempahan berjaya dihantar!</h3>
+Kami akan hubungi anda melalui WhatsApp.
+`;
+
+this.reset();
+kiraTotal();
+
+});
+
+
+// INITIAL LOAD
+kiraTotal();
+
+</script>
+
+
+</body>
+</html>
