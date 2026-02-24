@@ -272,39 +272,39 @@ transform:translateY(0);
 
 <section class="order-section">
 
-<h2 class="title">🛒 Tempahan JOHNLicious</h2>
+<h2 class="title">🛒 JOHNLicious Reservations</h2>
 
-<p>Sila isi maklumat tempahan</p>
+<p>Please fill in the booking information</p>
 
 
 <form id="orderForm">
 
 
-<label>Nama Penuh</label>
+<label>Full Name</label>
 <input type="text" id="nama" required>
 
 
-<label>Nombor Telefon</label>
+<label>Phone Number</label>
 <input type="text" id="phone" required>
 
 
-<label>Pilih Menu</label>
+<label>Select Menu</label>
 
 <div class="menu-item">
-Roti John Ayam - RM5
+Chicken John Bread - RM5
 <input type="number" id="ayamQty" value="0" min="0" onchange="kiraTotal()">
 </div>
 
 <div class="menu-item">
-Roti John Daging - RM6
+John Meat Bread - RM6
 <input type="number" id="dagingQty" value="0" min="0" onchange="kiraTotal()">
 </div>
 </select>
 
-<label>Kuantiti</label>
+<label>Quantity</label>
 <input type="number" id="kuantiti" value="1" min="1" onchange="kiraTotal()">
 
-<label>Kaedah Bayaran</label>
+<label>Payment Method</label>
 
 <div class="payment-method">
 
@@ -322,13 +322,13 @@ Roti John Daging - RM6
 
 <div class="total-box">
 
-Jumlah: RM<span id="total">0</span>
+Total: RM<span id="total">0</span>
 
 </div>
 
 
 <button type="submit" class="btn">
-Hantar Tempahan
+Submit Reservation
 </button>
 
 
